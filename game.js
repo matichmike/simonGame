@@ -17,7 +17,7 @@ $(".btn").click(function() {
 })
 
 function nextSequence() {
-
+  
   userClickedPattern = [];
   var randomNumber = Math.floor(Math.random() * 4);
   var randomChosenColor = buttonColors[randomNumber];
@@ -61,7 +61,7 @@ function checkAnswer(currentLevel) {
     setTimeout(() => {
       $("body").removeClass("game-over");
     }, 200);
-    $("#level-title").text("Game Over, Press Any Key to Restart");
+    $("#level-title").text("Game Over, Click Here or Press Any Key to Restart");
     startOver();
   }
 }
@@ -70,4 +70,9 @@ function startOver() {
   level = 0;
   gamePattern = [];
   started = false;
+}
+
+function startByClicking() {
+  if ($("#level-title").text()[0] === "L") {return};
+  nextSequence();
 }
